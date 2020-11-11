@@ -83,7 +83,9 @@ export const Editor: ThisTypedComponentOptionsWithRecordProps<Vue, {}, {}, {}, I
     this.element = this.$el;
 
     if (getTinymce() !== null) {
-      initialise(this)();
+      setTimeout(() => {
+        initialise(this)();
+      }, 0);
     } else if (this.element && this.element.ownerDocument) {
       const channel = this.$props.cloudChannel ? this.$props.cloudChannel : '5';
       const apiKey = this.$props.apiKey ? this.$props.apiKey : 'no-api-key';
