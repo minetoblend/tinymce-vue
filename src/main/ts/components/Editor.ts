@@ -75,7 +75,10 @@ export const Editor = defineComponent({
     });
     onMounted(() => {
       if (getTinymce() !== null) {
-        initWrapper();
+        setTimeout(()=>{
+          initWrapper();
+        },0) 
+        
       } else if (element.value && element.value.ownerDocument) {
         const channel = props.cloudChannel ? props.cloudChannel : '5';
         const apiKey = props.apiKey ? props.apiKey : 'no-api-key';
